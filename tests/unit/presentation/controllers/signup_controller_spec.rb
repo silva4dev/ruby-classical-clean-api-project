@@ -10,6 +10,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
         read: {}
       }
     }
+
     sut = Presentation::Controllers::Signup::SignupController.new
     http_response = sut.handle(http_request)
 
