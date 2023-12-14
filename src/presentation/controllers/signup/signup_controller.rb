@@ -9,7 +9,7 @@ module Presentation
     module Signup
       class SignupController
         include Protocols::Controller
-        def handle(http_request = {}, http_response = {})
+        def handle(http_request)
           required_fields = [:name, :email, :password, :password_confirmation]
           required_fields.each do |field|
             if http_request.empty? || http_request[:body][field].to_s.strip == ""
