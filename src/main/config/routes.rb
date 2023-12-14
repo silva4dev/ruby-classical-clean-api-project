@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "sinatra"
+require "sinatra/base"
 require_relative "../routes/signup_routes"
 
 module Main
