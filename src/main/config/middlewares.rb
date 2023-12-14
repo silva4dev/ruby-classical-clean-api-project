@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "sinatra"
+require "sinatra/base"
 
 module Main
   module Config
@@ -10,9 +10,9 @@ module Main
         content_type "application/json"
       end
 
-      def request_hash
+      def to_hash(request)
         {
-          query_params: request.params,
+          query_params: (request.params && JSON.parse(request.params, symbolize_names: true)) || {},
           body: (request.body && JSON.parse(request.body.read, symbolize_names: true)) || {}
         }
       rescue JSON::ParserError
