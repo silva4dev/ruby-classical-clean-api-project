@@ -1,3 +1,7 @@
+task "start" do
+  system("ruby ./src/main/server.rb")
+end
+
 task "test" do
   system("bundle exec rspec")
 end
