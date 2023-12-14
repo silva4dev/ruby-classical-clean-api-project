@@ -13,7 +13,7 @@ module Main
     configure :development do
       register Sinatra::Reloader
     end
+
+    run! if $PROGRAM_NAME == __FILE__
   end
 end
-
-Main::Server.run! if $PROGRAM_NAME == __FILE__
