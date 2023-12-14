@@ -12,7 +12,7 @@ module Main
 
       def to_hash(request)
         {
-          query_params: (request.params && JSON.parse(request.params, symbolize_names: true)) || {},
+          query_params: request.params,
           body: (request.body && JSON.parse(request.body.read, symbolize_names: true)) || {}
         }
       rescue JSON::ParserError
