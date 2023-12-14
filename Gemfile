@@ -2,6 +2,13 @@
 
 source "https://rubygems.org"
 
-gem "rspec"
+gem "sinatra", "2.2.4"
 
 gem "rake"
+
+gem "rack", "2.2.3"
+
+group :development, :test do
+  gem "rspec"
+  gem "rack-test"
+end
