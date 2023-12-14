@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.5.0)
+    multi_json (1.15.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     rack (2.2.3)
@@ -29,6 +30,12 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.2.4)
       tilt (~> 2.0)
+    sinatra-contrib (2.2.4)
+      multi_json
+      mustermann (~> 2.0)
+      rack-protection (= 2.2.4)
+      sinatra (= 2.2.4)
+      tilt (~> 2.0)
     tilt (2.3.0)
 
 PLATFORMS
@@ -39,7 +46,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
-  sinatra (= 2.2.4)
+  sinatra-contrib (= 2.2.4)
 
 BUNDLED WITH
    2.4.22
