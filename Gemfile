@@ -2,9 +2,9 @@
 
 source "https://rubygems.org"
 
-gem "sinatra-contrib", "2.2.4"
+gem "sinatra-contrib", ">= 2.2.4"
 
-gem "rack", "2.2.3"
+gem "rack", ">= 2.2.3"
 
 gem "rake"
 
