@@ -2,7 +2,7 @@
 
 module Main
   module Middlewares
-    class BodyParserMiddleware < Sinatra::Base
+    class BodyParserMiddleware
       def initialize(app)
         @app = app
       end
