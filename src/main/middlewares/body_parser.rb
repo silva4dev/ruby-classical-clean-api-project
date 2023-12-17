@@ -9,7 +9,7 @@ module Main
 
       def call(env)
         status, headers, body = @app.call(env)
-        headers['Content-Type'] = 'application/json'
+        headers["Content-Type"] = "application/json"
         [status, headers, body]
       end
     end
