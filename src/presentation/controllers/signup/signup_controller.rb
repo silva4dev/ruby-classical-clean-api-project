@@ -10,6 +10,12 @@ module Presentation
     module Signup
       class SignupController
         include Protocols::Controller
+        attr_reader :email_validator
+
+        def initialize(email_validator)
+          @email_validator = email_validator
+        end
+
         def handle(http_request)
           required_fields = [:name, :email, :password, :password_confirmation]
           required_fields.each do |field|
@@ -17,10 +23,14 @@ module Presentation
               return Helpers::HttpHelper.bad_request(Errors::MissingParamError.new(field))
             end
           end
+          email = http_request[:body][:email]
           password = http_request[:body][:password]
           password_confirmation = http_request[:body][:password_confirmation]
           if password != password_confirmation
             return Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:password_confirmation))
+          end
+          unless @email_validator.is_valid?(email)
+            return Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:email))
           end
         end
       end
