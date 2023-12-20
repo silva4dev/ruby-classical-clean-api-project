@@ -3,7 +3,7 @@
 module Main
   module Middlewares
     module Sinatra
-      class BodyParserMiddleware
+      class ContentTypeMiddleware
         def initialize(app)
           @app = app
         end
