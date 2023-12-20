@@ -1,5 +1,5 @@
 task "start" do
-  system("ruby ./src/main/server.rb")
+  system("ruby ./src/main/app/sinatra/server.rb")
 end
 
 task "test" do
