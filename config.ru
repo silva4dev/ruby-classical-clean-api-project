@@ -2,6 +2,6 @@
 
 #\ -p 3333 -o 0
 
-require_relative "./src/main/server"
+require_relative "./src/main/app/sinatra/server"
 
-run Main::Server
+run Main::App::Sinatra::Server
