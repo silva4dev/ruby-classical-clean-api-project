@@ -5,7 +5,7 @@ require "json"
 module Main
   module Adapters
     module Sinatra
-      class SinatraRouteAdapter
+      class RouteAdapter
         def self.adapt(controller)
           lambda do |request, response|
             http_request = {
