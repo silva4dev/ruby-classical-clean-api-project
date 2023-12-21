@@ -4,27 +4,23 @@ require_relative "../../../../src/presentation/controllers/signup/signup_control
 require_relative "../../../../src/presentation/errors/missing_param_error"
 require_relative "../../../../src/presentation/errors/invalid_param_error"
 
-class EmailValidatorStub
-  def is_valid?(email)
-    return true
-  end
-end
-
-def make_sut
-  email_validator_stub = EmailValidatorStub.new
-  sut = Presentation::Controllers::Signup::SignupController.new(email_validator_stub)
-  return {
-    sut: sut,
-    email_validator_stub: email_validator_stub
-  }
-end
-
 describe Presentation::Controllers::Signup::SignupController, type: :unit do
+  class EmailValidatorAdapterStub
+    def is_valid?(email)
+      return true
+    end
+  end
+
+  def make_sut
+    email_validator_adapter_stub = EmailValidatorAdapterStub.new
+    return Presentation::Controllers::Signup::SignupController.new(email_validator_adapter_stub)
+  end
+
   it "Should return 400 if required fields are not passed in the HTTP request body" do
     http_request = {
       body: {},
     }
-    sut = make_sut().fetch(:sut)
+    sut = make_sut()
     http_response = sut.handle(http_request)
 
     expect(http_response[:status_code]).to eq(400)
@@ -40,7 +36,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
         password_confirmation: "any_password_confirmation",
       },
     }
-    sut = make_sut().fetch(:sut)
+    sut = make_sut()
     http_response = sut.handle(http_request)
 
     expect(http_response[:status_code]).to eq(400)
