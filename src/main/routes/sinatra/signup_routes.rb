@@ -10,7 +10,8 @@ module Main
     module Sinatra
       class SignupRoutes < Main::Config::Middlewares
         post "/signup" do
-          return Adapters::Sinatra::SinatraRouteAdapter.adapt(Factories::Sinatra::SignupFactory.create())
+          return Adapters::Sinatra::SinatraRouteAdapter.adapt(
+            Factories::Sinatra::SignupFactory.create())
             .call(request, response)
             .body
         end
