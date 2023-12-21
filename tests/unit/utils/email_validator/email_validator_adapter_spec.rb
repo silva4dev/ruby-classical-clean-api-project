@@ -14,4 +14,11 @@ describe Utils::EmailValidator::EmailValidatorAdapter, type: :unit do
     allow(sut).to receive(:is_valid?).and_return(true)
     expect(sut.is_valid?("valid_email@mail.com")).to eq(true)
   end
+
+   it "Should call validator with correct email" do
+    sut = Utils::EmailValidator::EmailValidatorAdapter.new
+    allow(sut).to receive(:is_valid?).and_return(true)
+    sut.is_valid?("any_email@mail.com")
+    expect(sut).to have_received(:is_valid?).with("any_email@mail.com")
+  end
 end
