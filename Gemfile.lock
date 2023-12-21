@@ -39,6 +39,7 @@ GEM
     tilt (2.3.0)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -49,4 +50,4 @@ DEPENDENCIES
   sinatra-contrib (>= 2.2.4)
 
 BUNDLED WITH
-   2.4.22
+   2.5.1
