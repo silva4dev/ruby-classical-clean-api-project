@@ -9,6 +9,9 @@ gem "rake"
 
 group :development do
   gem "rerun"
+end
+
+group :development, :test do
   gem "rspec"
   gem "rack-test"
 end
