@@ -2,6 +2,10 @@ task "start" do
   system("ruby ./src/main/app/sinatra/server.rb")
 end
 
+task "start:dev" do
+  system("bundle exec rerun --pattern 'src/**/*.{rb}' 'rackup -p 3333 -r ./src/main/app/sinatra/server.rb -s puma'")
+end
+
 task "test" do
   system("bundle exec rspec")
 end
