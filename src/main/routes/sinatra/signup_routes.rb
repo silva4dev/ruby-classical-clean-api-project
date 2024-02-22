@@ -8,7 +8,7 @@ require_relative '../../factories/sinatra/signup'
 module Main
   module Routes
     module Sinatra
-      class SignupRoutes < Main::Config::Middlewares
+      class SignupRoutes < Main::Config::SinatraMiddlewares::Middlewares
         post '/signup' do
           return Adapters::Sinatra::RouteAdapter.adapt(
             Factories::Sinatra::SignupFactory.create)
