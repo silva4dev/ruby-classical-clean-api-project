@@ -4,4 +4,4 @@
 
 require_relative 'src/main/config/sinatra/server'
 
-run Main::Config::Sinatra::Server
+run Main::Config::SinatraServer::Server
