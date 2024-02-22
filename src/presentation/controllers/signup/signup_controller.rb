@@ -9,8 +9,7 @@ module Presentation
   module Controllers
     module Signup
       class SignupController
-        include Protocols::Controller
-        attr_reader :email_validator
+        include Helpers, Errors, Protocols::Controller
 
         def initialize(email_validator)
           @email_validator = email_validator
@@ -20,18 +19,18 @@ module Presentation
           required_fields = %i[name email password password_confirmation]
           required_fields.each do |field|
             if http_request.empty? || http_request[:body][field].to_s.strip == ''
-              return Helpers::HttpHelper.bad_request(Errors::MissingParamError.new(field))
+              return HttpHelper.bad_request(MissingParamError.new(field))
             end
           end
           email = http_request[:body][:email]
           password = http_request[:body][:password]
           password_confirmation = http_request[:body][:password_confirmation]
           if password != password_confirmation
-            return Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:password_confirmation))
+            return HttpHelper.bad_request(InvalidParamError.new(:password_confirmation))
           end
           return if @email_validator.is_valid?(email)
 
-          Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:email))
+          HttpHelper.bad_request(InvalidParamError.new(:email))
         end
       end
     end
