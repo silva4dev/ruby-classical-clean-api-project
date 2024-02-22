@@ -7,6 +7,7 @@ module Presentation
   module Helpers
     class HttpHelper
       include Protocols::HttpResponse
+
       def self.bad_request(error)
         { status_code: 400, body: error }
       end
