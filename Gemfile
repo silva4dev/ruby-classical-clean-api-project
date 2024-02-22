@@ -6,7 +6,6 @@ ruby '3.3.0'
 
 gem 'puma'
 gem 'rack', '~> 2.2.3'
-gem 'rake'
 gem 'sinatra'
 
 group :development do
