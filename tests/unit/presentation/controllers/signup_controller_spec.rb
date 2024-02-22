@@ -12,7 +12,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
     { sut:, email_validator_adapter: }
   end
 
-  it 'returns 400 if required fields are not passed in the HTTP request body' do
+  it 'Should return 400 if required fields are not passed in the HTTP request bod' do
     http_request = {
       body: {}
     }
@@ -23,7 +23,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
     expect(http_response[:body]).to be_instance_of(Presentation::Errors::MissingParamError)
   end
 
-  it "returns 400 if the password doesn't match the password confirmation" do
+  it "Should return 400 if the password doesn't match the password confirmation" do
     http_request = {
       body: {
         name: 'any_name',
@@ -39,7 +39,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
     expect(http_response[:body]).to eq(Presentation::Errors::InvalidParamError.new(:password_confirmation))
   end
 
-  it 'returns 400 if an invalid email is provided' do
+  it 'Should return 400 if an invalid email is provided' do
     http_request = {
       body: {
         name: 'any_name',
