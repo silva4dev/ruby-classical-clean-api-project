@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "../../protocols/controller"
-require_relative "../../helpers/http_helper"
-require_relative "../../errors/missing_param_error"
-require_relative "../../errors/invalid_param_error"
+require_relative '../../protocols/controller'
+require_relative '../../helpers/http_helper'
+require_relative '../../errors/missing_param_error'
+require_relative '../../errors/invalid_param_error'
 
 module Presentation
   module Controllers
@@ -17,9 +17,9 @@ module Presentation
         end
 
         def handle(http_request)
-          required_fields = [:name, :email, :password, :password_confirmation]
+          required_fields = %i[name email password password_confirmation]
           required_fields.each do |field|
-            if http_request.empty? || http_request[:body][field].to_s.strip == ""
+            if http_request.empty? || http_request[:body][field].to_s.strip == ''
               return Helpers::HttpHelper.bad_request(Errors::MissingParamError.new(field))
             end
           end
@@ -29,9 +29,9 @@ module Presentation
           if password != password_confirmation
             return Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:password_confirmation))
           end
-          unless @email_validator.is_valid?(email)
-            return Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:email))
-          end
+          return if @email_validator.is_valid?(email)
+
+          Helpers::HttpHelper.bad_request(Errors::InvalidParamError.new(:email))
         end
       end
     end

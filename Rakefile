@@ -1,19 +1,21 @@
-task "start" do
-  system("ruby ./src/main/app/sinatra/server.rb")
+# frozen_string_literal: true
+
+task 'start' do
+  system('ruby ./src/main/config/sinatra/server.rb')
 end
 
-task "start:dev" do
-  system("bundle exec rerun --pattern 'src/**/*.{rb}' 'rackup -p 3333 -r ./src/main/app/sinatra/server.rb -s puma'")
+task 'start:dev' do
+  system("bundle exec rerun --pattern 'src/**/*.{rb}' 'rackup -p 3333 -r ./src/main/config/sinatra/server.rb -s puma'")
 end
 
-task "test" do
-  system("bundle exec rspec")
+task 'test' do
+  system('bundle exec rspec')
 end
 
-task "test:unit" do
+task 'test:unit' do
   system("bundle exec rspec --pattern 'tests/unit/**/*_spec.rb'")
 end
 
-task "test:integration" do
+task 'test:integration' do
   system("bundle exec rspec --pattern 'tests/integration/**/*_spec.rb'")
 end

@@ -5,7 +5,7 @@ module Presentation
     class MissingParamError < StandardError
       def initialize(param_name)
         super("Missing param: #{param_name}")
-        @name = "MissingParamError"
+        @name = 'MissingParamError'
       end
     end
   end

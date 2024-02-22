@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "../protocols/http"
-require_relative "../errors/server_error"
+require_relative '../protocols/http'
+require_relative '../errors/server_error'
 
 module Presentation
   module Helpers
@@ -12,7 +12,7 @@ module Presentation
       end
 
       def self.server_error
-        { status_code: 500, body: Errors::ServerError.new}
+        { status_code: 500, body: Errors::ServerError.new }
       end
 
       def self.ok(data)

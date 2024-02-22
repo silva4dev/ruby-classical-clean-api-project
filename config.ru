@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-#\ -p 3333 -o 0
+# \ -p 3333 -o 0
 
-require_relative "./src/main/app/sinatra/server"
+require_relative 'src/main/config/sinatra/server'
 
-run Main::App::Sinatra::Server
+run Main::Config::Sinatra::Server

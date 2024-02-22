@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "../../routes/sinatra/signup_routes"
-require "sinatra/base"
+require_relative '../../routes/sinatra/signup_routes'
+require 'sinatra/base'
 
 module Main
   module Config

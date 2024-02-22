@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "../../config/sinatra/routes"
+require_relative '../../config/sinatra/routes'
 
 module Main
-  module App
+  module Config
     module Sinatra
       class Server < Config::Routes
         configure do
-          set :bind, "0.0.0.0"
+          set :bind, '0.0.0.0'
           set :port, 3333
         end
 

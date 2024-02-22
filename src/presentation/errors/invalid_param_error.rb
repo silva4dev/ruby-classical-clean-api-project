@@ -5,7 +5,7 @@ module Presentation
     class InvalidParamError < StandardError
       def initialize(param_name)
         super("Invalid param: #{param_name}")
-        @name = "InvalidParamError"
+        @name = 'InvalidParamError'
       end
     end
   end
