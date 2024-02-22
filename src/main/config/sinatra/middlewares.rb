@@ -8,7 +8,7 @@ require_relative '../../middlewares/sinatra/cors'
 module Main
   module Config
     module SinatraMiddlewares
-      class Middlewares < Sinatra::Base
+      class MiddlewaresSetup < Sinatra::Base
         use Main::Middlewares::Sinatra::ContentTypeMiddleware
         use Main::Middlewares::Sinatra::AcceptMiddleware
         use Main::Middlewares::Sinatra::CorsMiddleware
