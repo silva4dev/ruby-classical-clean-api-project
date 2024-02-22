@@ -7,7 +7,7 @@ ruby '3.3.0'
 gem 'mongo'
 gem 'puma'
 gem 'rack', '~> 2.2.3'
-gem 'sinatra'
+gem 'sinatra-contrib'
 
 group :development do
   gem 'rerun'
