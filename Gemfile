@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "puma"
-gem "sinatra"
-gem "rack", "~> 2.2.3"
-gem "rake"
+ruby '3.3.0'
+
+gem 'puma'
+gem 'rack', '~> 2.2.3'
+gem 'rake'
+gem 'sinatra'
 
 group :development do
-  gem "rerun"
+  gem 'rerun'
+  gem 'rubocop'
+  gem 'rubocop-rspec', '~> 2.26'
 end
 
-group :development, :test do
-  gem "rspec"
-  gem "rack-test"
+group :test do
+  gem 'rack-test'
+  gem 'rspec'
 end
