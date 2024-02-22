@@ -5,7 +5,7 @@ require_relative '../../config/sinatra/routes'
 module Main
   module Config
     module SinatraServer
-      class Server < Config::SinatraRoutes::RoutesSetup
+      class ServerSetup < Config::SinatraRoutes::RoutesSetup
         configure do
           set :bind, '0.0.0.0'
           set :port, 3333
