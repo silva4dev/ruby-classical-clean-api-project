@@ -36,3 +36,5 @@ RSpec/SpecFilePathFormat:
   Enabled: false
 Naming/FileName:
   Enabled: false
+Style/MixinGrouping:
+  Enabled: false
