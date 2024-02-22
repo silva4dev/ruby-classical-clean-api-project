@@ -3,16 +3,16 @@
 require_relative '../../../../src/presentation/controllers/signup/signup_controller'
 require_relative '../../../../src/presentation/errors/missing_param_error'
 require_relative '../../../../src/presentation/errors/invalid_param_error'
-require_relative '../../../../src/utils/email_validator/email_validator_adapter'
+require_relative '../../../../src/validation/email_validator/email_validator_adapter'
 
 describe Presentation::Controllers::Signup::SignupController, type: :unit do
   def make_sut
-    email_validator_adapter = Utils::EmailValidator::EmailValidatorAdapter.new
+    email_validator_adapter = Validation::EmailValidator::EmailValidatorAdapter.new
     sut = Presentation::Controllers::Signup::SignupController.new(email_validator_adapter)
     { sut:, email_validator_adapter: }
   end
 
-  it 'Should return 400 if required fields are not passed in the HTTP request bod' do
+  it 'Should return 400 if required fields are not passed in the HTTP request body' do
     http_request = {
       body: {}
     }

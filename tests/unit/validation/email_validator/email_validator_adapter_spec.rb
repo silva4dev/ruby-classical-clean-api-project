@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../../../src/utils/email_validator/email_validator_adapter'
+require_relative '../../../../src/validation/email_validator/email_validator_adapter'
 
-describe Utils::EmailValidator::EmailValidatorAdapter, type: :unit do
+describe Validation::EmailValidator::EmailValidatorAdapter, type: :unit do
   def make_sut
-    Utils::EmailValidator::EmailValidatorAdapter.new
+    Validation::EmailValidator::EmailValidatorAdapter.new
   end
 
   it 'Should return false if validator returns false' do

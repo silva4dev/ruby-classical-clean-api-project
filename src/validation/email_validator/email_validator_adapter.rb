@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Utils
+module Validation
   module EmailValidator
     class EmailValidatorAdapter
       def is_valid?(email)
