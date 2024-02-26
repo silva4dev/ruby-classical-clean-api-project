@@ -2,9 +2,9 @@
 
 require_relative '../../../../src/validation/email_validator/email_validator_adapter'
 
-describe Validation::EmailValidator::EmailValidatorAdapter, type: :unit do
+describe EmailValidatorAdapter, type: :unit do
   def make_sut
-    Validation::EmailValidator::EmailValidatorAdapter.new
+    EmailValidatorAdapter.new
   end
 
   it 'Should return false if validator returns false' do

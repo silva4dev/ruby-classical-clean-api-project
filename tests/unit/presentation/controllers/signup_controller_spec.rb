@@ -5,10 +5,10 @@ require_relative '../../../../src/presentation/errors/missing_param_error'
 require_relative '../../../../src/presentation/errors/invalid_param_error'
 require_relative '../../../../src/validation/email_validator/email_validator_adapter'
 
-describe Presentation::Controllers::Signup::SignupController, type: :unit do
+describe SignupController, type: :unit do
   def make_sut
-    email_validator_adapter = Validation::EmailValidator::EmailValidatorAdapter.new
-    sut = Presentation::Controllers::Signup::SignupController.new(email_validator_adapter)
+    email_validator_adapter = EmailValidatorAdapter.new
+    sut = SignupController.new(email_validator_adapter)
     { sut:, email_validator_adapter: }
   end
 
@@ -20,7 +20,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
     http_response = sut.handle(http_request)
 
     expect(http_response[:status_code]).to eq(400)
-    expect(http_response[:body]).to be_instance_of(Presentation::Errors::MissingParamError)
+    expect(http_response[:body]).to be_instance_of(MissingParamError)
   end
 
   it "Should return 400 if the password doesn't match the password confirmation" do
@@ -36,7 +36,7 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
     http_response = sut.handle(http_request)
 
     expect(http_response[:status_code]).to eq(400)
-    expect(http_response[:body]).to eq(Presentation::Errors::InvalidParamError.new(:password_confirmation))
+    expect(http_response[:body]).to eq(InvalidParamError.new(:password_confirmation))
   end
 
   it 'Should return 400 if an invalid email is provided' do
@@ -53,6 +53,6 @@ describe Presentation::Controllers::Signup::SignupController, type: :unit do
     http_response = sut.handle(http_request)
 
     expect(http_response[:status_code]).to eq(400)
-    expect(http_response[:body]).to eq(Presentation::Errors::InvalidParamError.new(:email))
+    expect(http_response[:body]).to eq(InvalidParamError.new(:email))
   end
 end

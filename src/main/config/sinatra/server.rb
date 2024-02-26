@@ -2,17 +2,11 @@
 
 require_relative '../../config/sinatra/routes'
 
-module Main
-  module Config
-    module SinatraServer
-      class ServerSetup < Config::SinatraRoutes::RoutesSetup
-        configure do
-          set :bind, '0.0.0.0'
-          set :port, 3333
-        end
-
-        run! if $PROGRAM_NAME == __FILE__
-      end
-    end
+class ServerSetup < RoutesSetup
+  configure do
+    set :bind, '0.0.0.0'
+    set :port, 3333
   end
+
+  run! if $PROGRAM_NAME == __FILE__
 end

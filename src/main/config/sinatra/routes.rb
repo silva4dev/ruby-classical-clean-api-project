@@ -5,17 +5,11 @@ require 'sinatra/namespace'
 require_relative '../../routes/sinatra/signup_routes'
 require_relative '../../config/sinatra/middlewares'
 
-module Main
-  module Config
-    module SinatraRoutes
-      class RoutesSetup < Sinatra::Base
-        register Sinatra::Namespace
-        use Main::Config::SinatraMiddlewares::MiddlewaresSetup
+class RoutesSetup < Sinatra::Base
+  register Sinatra::Namespace
+  use MiddlewaresSetup
 
-        namespace '/api' do
-          register Main::Routes::Sinatra::SignupRoutes
-        end
-      end
-    end
+  namespace '/api' do
+    register SignupRoutes
   end
 end
