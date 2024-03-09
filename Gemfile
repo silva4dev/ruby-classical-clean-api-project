@@ -12,7 +12,8 @@ gem 'sinatra-contrib'
 group :development do
   gem 'rerun'
   gem 'rubocop'
-  gem 'rubocop-rspec', '~> 2.26'
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
 end
 
 group :test do
