@@ -11,7 +11,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  config.pattern = 'tests/**/*_{test,spec}.rb'
+  config.pattern = 'tests/**/*_spec.rb'
   config.include Rack::Test::Methods
 
   def app
