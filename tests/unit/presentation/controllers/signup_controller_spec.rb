@@ -3,12 +3,12 @@
 require_relative '../../../../src/presentation/controllers/signup/signup_controller'
 require_relative '../../../../src/presentation/errors/missing_param_error'
 require_relative '../../../../src/presentation/errors/invalid_param_error'
-require_relative '../../../../src/validation/email_validator/email_validator_adapter'
+require_relative '../../../../src/validation/email_validator'
 
 describe SignupController, type: :unit do
-  def make_sut
-    email_validator_adapter = EmailValidatorAdapter.new
-    sut = SignupController.new(email_validator_adapter)
+  let(:make_sut) do
+    email_validator_adapter = EmailValidator.new
+    sut = described_class.new(email_validator_adapter)
     { sut:, email_validator_adapter: }
   end
 

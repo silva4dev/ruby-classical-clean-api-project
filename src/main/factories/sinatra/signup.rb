@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../validation/email_validator/email_validator_adapter'
+require_relative '../../../validation/email_validator'
 require_relative '../../../presentation/controllers/signup/signup_controller'
 
 class SignupFactory
